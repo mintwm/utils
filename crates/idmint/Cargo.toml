@@ -5,7 +5,7 @@ edition = "2024"
 license = "Apache-2.0"
 repository = "https://github.com/mintwm/utils"
 authors = ["selrisu <myirisuchan@gmail.com>"]
-description = "A tiny library for minting unique u8 identifiers."
+description = "A tiny library for minting unique identifiers."
 
 [lints]
 workspace = true
@@ -15,14 +15,14 @@ partial_ord = []
 partial_eq = []
 hash = []
 
+stack = []
+heap = ["indexmap", "num-traits"]
+
 [dependencies.num-traits]
 version = "0.2.19"
 default-features = false
+optional = true
 
 [dependencies]
 as-guard = "0.1.0"
-
-[[test]]
-name = "recycle_recycled_last"
-path = "tests/stack.rs"
-required-features = ["partial_eq"]
+indexmap = { version = "2.13.1", optional = true }
