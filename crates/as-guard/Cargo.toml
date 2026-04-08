@@ -1,0 +1,15 @@
+[package]
+name = "as-guard"
+version.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+default = ["debug"]
+debug = []
+release = []
+
+[dependencies]
+cfg-if = "1.0.4"

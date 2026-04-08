@@ -1,0 +1,24 @@
+[package]
+name = "idmint"
+version.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+partial_ord = []
+partial_eq = []
+hash = []
+
+[dependencies.num-traits]
+version = "0.2.19"
+default-features = false
+
+[dependencies]
+as-guard.workspace = true
+
+[[test]]
+name = "recycle_recycled_last"
+path = "tests/stack.rs"
+required-features = ["partial_eq"]

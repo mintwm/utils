@@ -1,0 +1,16 @@
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+resolver = "2"
+members = ["crates/as-guard", "crates/idmint"]
+
+[workspace.lints.clippy]
+pedantic = "warn"
+
+[workspace.lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(coverage_nightly)'] }
+
+[workspace.dependencies]
+as-guard = { path = "crates/as-guard" }
