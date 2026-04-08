@@ -1,7 +1,10 @@
 [package]
 name = "as-guard"
-version.workspace = true
-edition.workspace = true
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/mintwm/utils"
+authors = ["selrisu <myirisuchan@gmail.com>"]
 
 [lints]
 workspace = true
