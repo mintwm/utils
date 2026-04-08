@@ -5,7 +5,7 @@ edition = "2024"
 license = "Apache-2.0"
 repository = "https://github.com/mintwm/utils"
 authors = ["selrisu <myirisuchan@gmail.com>"]
-description = ""
+description = "A lightweight Rust utility for overflow-protected type casting with debug/release assertions."
 
 [lints]
 workspace = true
