@@ -76,10 +76,24 @@ fn recycle_recycled_middle() {
 }
 
 #[test]
-fn shift_overflow_issue() {
+fn get_bit_shift_overflow_issue() {
     let mint = StackMint::new(32);
     // 0.1-0.2 versions will panic at value more than 7
     for i in 0..32 {
         assert!(mint.is_value_in_use(i));
+    }
+}
+
+#[test]
+fn set_bit_shift_overflow_issue() {
+    let mut mint = StackMint::new(0);
+    for i in 0..32 {
+        assert_eq!(mint.issue(), Some(i));
+    }
+
+    // Recycle an every even value
+    // 0.1 - 0.2.1 versions will panic at value more than 7
+    for i in (0..32).filter(|v| v % 2 == 0) {
+        mint.recycle(i);
     }
 }
