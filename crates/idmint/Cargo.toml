@@ -1,7 +1,11 @@
 [package]
 name = "idmint"
-version.workspace = true
-edition.workspace = true
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/mintwm/utils"
+authors = ["selrisu <myirisuchan@gmail.com>"]
+description = "A tiny library for minting unique u8 identifiers."
 
 [lints]
 workspace = true
