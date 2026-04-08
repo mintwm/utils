@@ -30,18 +30,18 @@ impl StackMint {
     }
 
     #[must_use]
-    pub fn used(&self) -> u8 {
+    pub const fn used(&self) -> u8 {
         self.next - self.returned
     }
 
     /// Returns the last used value (in the entire range)
     #[must_use]
-    pub fn last(&self) -> u8 {
+    pub const fn last(&self) -> u8 {
         self.next.saturating_sub(1)
     }
 
     #[must_use]
-    pub fn is_value_in_use(&self, value: u8) -> bool {
+    pub const fn is_value_in_use(&self, value: u8) -> bool {
         value < self.next && !self.get_bit(value as usize)
     }
 
@@ -76,7 +76,7 @@ impl StackMint {
         None
     }
 
-    pub fn recycle(&mut self, value: u8) {
+    pub const fn recycle(&mut self, value: u8) {
         if value == self.next || self.get_bit(value as usize) {
             return;
         }
@@ -89,12 +89,12 @@ impl StackMint {
         }
     }
 
-    fn get_bit(&self, index: usize) -> bool {
+    const fn get_bit(&self, index: usize) -> bool {
         let byte_index = index / 8;
         (self.bytes[byte_index] >> index) & 1 == 1
     }
 
-    fn set_bit(&mut self, index: usize, value: bool) {
+    const fn set_bit(&mut self, index: usize, value: bool) {
         let byte_index = index / 8;
         let mask = 1 << index;
         if value {
