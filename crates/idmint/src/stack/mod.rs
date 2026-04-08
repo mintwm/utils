@@ -91,7 +91,8 @@ impl StackMint {
 
     const fn get_bit(&self, index: usize) -> bool {
         let byte_index = index / 8;
-        (self.bytes[byte_index] >> index) & 1 == 1
+        let offset = index - byte_index * 8;
+        (self.bytes[byte_index] >> offset) & 1 == 1
     }
 
     const fn set_bit(&mut self, index: usize, value: bool) {

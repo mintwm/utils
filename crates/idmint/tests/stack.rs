@@ -74,3 +74,12 @@ fn recycle_recycled_middle() {
 
     assert_eq!(mint, mint_clone);
 }
+
+#[test]
+fn shift_overflow_issue() {
+    let mint = StackMint::new(32);
+    // 0.1-0.2 versions will panic at value more than 7
+    for i in 0..32 {
+        assert!(mint.is_value_in_use(i));
+    }
+}
