@@ -20,7 +20,7 @@ version = "0.2.19"
 default-features = false
 
 [dependencies]
-as-guard.workspace = true
+as-guard = "0.1.0"
 
 [[test]]
 name = "recycle_recycled_last"
